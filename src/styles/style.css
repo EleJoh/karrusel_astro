@@ -1,0 +1,38 @@
+:root {
+  /* farver */
+  --light_grey: rgba(217, 217, 217, 1);
+  --darker_grey: rgba(142, 148, 167, 1);
+  --white: rgba(255, 255, 255, 1);
+
+  --violet: rgba(139, 93, 174, 1);
+  --turkis: rgba(5, 148, 168, 1);
+  --pink: rgba(170, 28, 98, 1);
+
+  --dark_violet: rgba(30, 30, 30, 1);
+  --light_violet: rgba(125, 110, 146, 1);
+
+  /* typography */
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  background: var(--surface-default);
+}
+
+body {
+  height: 100%;
+  line-height: 1.6;
+  /* background-image: linear-gradient(to bottom, rgba(11, 11, 23, 1), rgba(42, 43, 73, 1)); */
+  background-color: rgb(177, 201, 195);
+  font-family: system-ui;
+  overscroll-behavior-block: none;
+}
+
+.gradient {
+  background-image: linear-gradient(to bottom, rgba(22, 44, 49, 0), rgba(1, 0, 20, 1));
+}
