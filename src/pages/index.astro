@@ -1,18 +1,22 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro"
-import Card from "../components/Card.astro"
-import Component from "../components/Component.astro"
-import "../styles/style.css"
-
+import "../styles/style.css";
+import MainLayout from "../layouts/MainLayout.astro";
+import Footer from "../components/Footer.astro";
+import Card from "../components/Card.astro";
+import Component from "../components/Component.astro";
+import "../styles/style.css";
 ---
 
-<MainLayout title="Forside">
-	<h2></h2>
-	<Card name="Annejette" email="ggh"></Card>
-	<Card name="Elena" email="ggh"></Card>
-	<Component h3="RELEVANT"></Component>
-
-</MainLayout>
-
-
-
+<html>
+  <body>
+    <main>
+      <MainLayout title="Forside">
+        <h2></h2>
+        <Card name="Annejette" email="ggh" />
+        <Card name="Elena" email="ggh" />
+        <Component h3="RELEVANT" />
+      </MainLayout>
+    </main>
+    <Footer />
+  </body>
+</html>
