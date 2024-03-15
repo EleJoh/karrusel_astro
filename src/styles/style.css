@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  font-family: "Monoton", system-ui;
+}
+
+p {
+  font-family: "PT Sans", sans-serif;
+  color: #d9d9d9;
+}
