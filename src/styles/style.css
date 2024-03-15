@@ -1,4 +1,38 @@
+:root {
+  /* farver */
+  --light_grey: rgba(217, 217, 217, 1);
+  --darker_grey: rgba(142, 148, 167, 1);
+  --white: rgba(255, 255, 255, 1);
+
+  --violet: rgba(139, 93, 174, 1);
+  --turkis: rgba(5, 148, 168, 1);
+  --pink: rgba(170, 28, 98, 1);
+
+  --dark_violet: rgba(30, 30, 30, 1);
+  --light_violet: rgba(125, 110, 146, 1);
+
+  /* typography */
+  --font-size-h1-mobil: 1rem;
+  --font-size-h2-mobil: 2rem;
+  --font-size-h3-mobil: 1.5rem;
+  --font-size-h4-mobil: 1.5rem;
+  --font-size-p-mobil: 1.5rem;
+}
+
+h1,
+h2 {
+  font-family: "Monoton", system-ui;
+  color: var(--white);
+}
+h3,
+h4,
+p {
+  font-family: "PT Sans", sans-serif;
+  color: var(--light_grey);
+}
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -6,14 +40,24 @@ body {
   font-family: "PT Sans", sans-serif;
 }
 
+html {
+  height: 100%;
+  background: var(--surface-default);
+}
+
 img {
   max-width: 100%;
 }
 
-h1 {
-  font-family: "Monoton", system-ui;
+body {
+  height: 100%;
+  /* line-height: 1.6; */
+  background-image: linear-gradient(to bottom, rgba(11, 11, 23, 1), rgba(42, 43, 73, 1));
+  overscroll-behavior-block: none;
 }
 
 p {
   color: #d9d9d9;
+.gradient {
+  background-image: linear-gradient(to bottom, rgba(22, 44, 49, 0), rgba(1, 0, 20, 1));
 }

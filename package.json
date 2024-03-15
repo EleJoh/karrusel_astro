@@ -13,5 +13,8 @@
     "@fontsource/monoton": "^5.0.18",
     "@fontsource/pt-sans": "^5.0.12",
     "astro": "^4.5.3"
+  },
+  "devDependencies": {
+    "prettier-plugin-astro": "^0.13.0"
   }
 }
