@@ -1,0 +1,71 @@
+---
+
+---
+
+<article>
+  <div class="smoke_container">
+    <div class="smoke_pic">
+      <img src="../index_pics/smoke.png" alt="" />
+    </div>
+    <div class="newsletter_container">
+      <h4 class="h4_news">STAY UPDATED</h4>
+      <div class="newsletter"><p class="grey_h4">NAME</p></div>
+      <div class="newsletter_2"><p class="grey_h4">EMAIL</p></div>
+    </div>
+  </div>
+</article>
+
+<style>
+  /* smoke */
+  .smoke_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    align-items: left;
+    margin-top: -5%;
+  }
+
+  .smoke_pic {
+    width: 100%;
+    height: auto;
+    grid-column: 1/4;
+    grid-row: 1/4;
+    position: relative;
+  }
+
+  .newsletter_container {
+    font-size: var(--font-size-h2-mobil);
+    text-align: left;
+    z-index: 1;
+    grid-column: 2 / span 1;
+    grid-row: 3 / span 1;
+    margin: 0 0 70% 25%;
+  }
+
+  .newsletter {
+    border: 2px solid white;
+    padding: 10px;
+    background: transparent;
+    width: 230px;
+    height: 40px;
+  }
+  .newsletter_2 {
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    padding: 10px;
+    background: transparent;
+    width: 230px;
+    height: 40px;
+  }
+
+  .grey_h4 {
+    color: var(--darker_grey);
+    font-size: var(--font-size-p-mobil);
+  }
+
+  .h4_news {
+    font-size: var(--font-size-h4-mobil);
+    padding: 0 0 10px 35px;
+  }
+</style>

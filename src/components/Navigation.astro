@@ -1,36 +1,68 @@
 ---
-
+import "../styles/style.css";
 ---
-
-<nav>
-  <div class="menu">
-    <h2>29/8 - 31/8</h2>
-    <h2>DA</h2>
-    <a href="/lineup">
-      <img src="img.png" alt="logo" />
-    </a>
-  </div>
-  <div class="logo">
-    <a href="/#">
-      <img src="img.png" alt="logo" />
-      <img src="karrusel.png" alt="karrusel" />
-    </a>
-  </div>
-</nav>
 
 <nav>
   <a href="/#">Hjem</a>
   <a href="/lineup">Lineup</a>
   <a href="/artist">Artist</a>
 </nav>
+<header class="hero_menu_container">
+  <div class="left-section">
+    <div class="logo">
+      <a href="/#">
+        <img height="40" width="70" src="karrusel_logo_white.png" alt="logo" />
+      </a>
+    </div>
+    <div class="date"><h2 class="h2_menu">29/8 - 31/8</h2></div>
+  </div>
+  <div class="right-section">
+    <div class="icon icon_da">
+      <h2>DA</h2>
+    </div>
+    <div class="icon">
+      <img src="search_23.png" alt="karrusel" />
+    </div>
+    <div class="icon_heart">
+      <img src="heart_28.png" alt="karrusel" />
+    </div>
+    <div class="icon">
+      <img src="burger_menu_27.png" alt="karrusel" />
+    </div>
+  </div>
+</header>
 
 <style>
-  .menu {
+  header {
     display: flex;
     justify-content: space-between;
+    /* position: relative; */
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--dark_violet);
+    /* background-image: linear-gradient(to top, rgba(22, 44, 49, 0), rgba(1, 0, 20, 1)); */
+  }
+  .h2_menu {
+    font-size: var(--font-size-h1-mobil);
+  }
+  .icon_da {
+    font-size: 0.9rem;
+  }
+  .left-section {
+    display: flex;
+    align-items: center;
+  }
+
+  .right-section {
+    display: flex;
+    justify-content: center;
   }
 
   .logo {
-    display:;
+    margin-right: 25px;
+  }
+  .icon,
+  .icon_heart {
+    margin-left: 20px;
   }
 </style>

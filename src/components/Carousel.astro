@@ -1,0 +1,80 @@
+---
+import Card from "../components/Card.astro";
+---
+
+<div class="carousel_web">
+  <div class="carousel-container">
+    <div class="carousel">
+      <div class="nav-arrows prev-arrow">&#9664;</div>
+      <div class="carousel-slide">
+        <Card name="1" imgPath="../index_pics/lineup_forside.jpg" />
+      </div>
+      <div class="carousel-slide">
+        <Card name="2" imgPath="../index_pics/lineup_forside.jpg" />
+      </div>
+      <div class="carousel-slide">
+        <Card name="3" imgPath="../index_pics/lineup_forside.jpg" />
+      </div>
+      <div class="nav-arrows next-arrow">&#9654;</div>
+
+      <div class="carousel_mobil">
+        <div class="carousel-container_mobil">
+          <div class="carousel_mobil">
+            <div class="nav-arrows_mobil prev-arrow_mobil">&#9664;</div>
+            <div class="carousel-slide_mobil">
+              <Card name="1" imgPath="../index_pics/lineup_forside.jpg" />
+            </div>
+            <div class="carousel-slide_mobil">
+              <Card name="2" imgPath="../index_pics/lineup_forside.jpg" />
+            </div>
+            <div class="carousel-slide_mobil">
+              <Card name="3" imgPath="../index_pics/lineup_forside.jpg" />
+            </div>
+            <div class="nav-arrows_mobil next-arrow_mobil">&#9654;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /********************************************* karousel ****************************************************/
+
+  .produkter {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .carousel-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    margin: 5% 0 2% 5%;
+    padding-left: 5%;
+  }
+
+  .carousel {
+    display: flex;
+    overflow: hidden;
+    flex: 1;
+    gap: 10px;
+  }
+
+  .carousel-slide {
+    flex: 0 0 20%;
+  }
+
+  .nav-arrows {
+    font-size: 20px;
+    cursor: pointer;
+    color: #809671;
+    margin: 10% 2% 0 0;
+  }
+
+  .next-arrow {
+    font-size: 25px;
+  }
+</style>
