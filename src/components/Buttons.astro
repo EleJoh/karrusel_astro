@@ -1,0 +1,64 @@
+---
+const {variant, size} = Astro.props;
+
+---
+
+<button class={variant + " " + size}><slot /></button>
+
+
+<style>
+    button{
+        padding:0.4rem;
+        color: var(--light_grey);
+    }
+
+    .primary{
+        border: 2px solid var(--light_grey);  
+        background-color: #151827;
+          /*background-color: var(--dark_violet)*/
+        padding-inline-start: 2rem;
+        padding-inline-end: 2rem;
+    }
+
+    .secondary{
+        border: 2px solid var(--light_grey);  
+        background-color: #151827;
+        padding-inline-start: 6rem;
+        padding-inline-end: 6rem;
+    }
+
+    @media screen and (min-width: 769px) {
+        .secondary{
+        padding-inline-start: 10rem;
+        padding-inline-end: 10rem; 
+    }
+  .primary{
+    padding-inline-start: 4rem;
+    padding-inline-end: 4rem;
+      
+    }
+}
+
+.primary:hover {
+  color: var(--violet);
+  opacity: 0.8;
+  border-color: var(--violet);
+}
+
+.secondary:hover {
+  color: var(--turkis);
+  opacity: 0.8;
+  border-color: var(--turkis);
+}
+
+.small{
+    font-size: 1rem;
+}
+
+.large{
+    font-size: 1rem;
+}
+
+
+
+</style>
