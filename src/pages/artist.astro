@@ -1,9 +1,13 @@
 ---
-import Component from "../components/Component.astro"
-import "../styles/style.css"
+import Component from "../components/Component.astro";
+import "../styles/style.css";
+import Carousel from "../components/Carousel.astro";
+import Navigation from "../components/Navigation.astro";
+import Hero from "../components/Hero.astro";
 ---
 
-<Component h3="OTHER ARTISTS"></Component>
-
-
-
+<Navigation />
+<Hero picPath="../index_pics/map_forside.jpeg" heroText="ljyglyufluyf" />
+<Component h3="OTHER ARTISTS" />
+<Carousel />
+<!-- lets make another conflict -this is solved-->

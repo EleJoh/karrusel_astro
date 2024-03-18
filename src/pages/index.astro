@@ -1,19 +1,37 @@
 ---
 import "../styles/style.css";
-import MainLayout from "../layouts/MainLayout.astro";
+// import MainLayout from "../layouts/MainLayout.astro";
 import Footer from "../components/Footer.astro";
-// import Card from "../components/Card.astro";
+import Card from "../components/Card.astro";
 import Component from "../components/Component.astro";
+import Navigation from "../components/Navigation.astro";
+import Newsletter from "../components/Newsletter.astro";
+import Hero from "../components/Hero.astro";
 ---
 
-<html>
+<html lang="en">
   <body>
+    <Navigation />
     <main>
-      <MainLayout title="Forside">
-        <h2></h2>
-        <Component h3="RELEVANT" />
-      </MainLayout>
+      <Hero picPath="../index_pics/hero_forside.jpg" heroText="3 days of house, disco and techno in the woods." />
+      <p class="p_hero">Experience 3 days of house, disco, and techno nestled in a magical forest at KARRUSEL festival! Join us at Refshaleoen, Copenhagen, from August 29 - 31, 2024!</p>
+      <Card name="LINEUP 2024" imgPath="../index_pics/lineup_forside.jpg" />
+      <Card name="TICKETS" imgPath="../index_pics/tickets_forside.jpg" />
+      <Component h3="RELEVANT" />
+      <Card name="INFO OG MAP" imgPath="../index_pics/map_forside.jpeg" />
+      <Card name="VOLUNTEERING" imgPath="../index_pics/volunteering_forside.jpg" />
+      <Card name="COMMUNITY" imgPath="../index_pics/community_forside.jpg" />
+      <Component h3="THROWBACK" />
+      <Card id="karousel" name="LINEUP 23" imgPath="../index_pics/lineup23_forside.jpg" />
+      <Newsletter />
     </main>
-    <Footer />
   </body>
+  <Footer />
 </html>
+
+<style>
+  .p_hero {
+    margin: 5% 15%;
+    text-align: center;
+  }
+</style>

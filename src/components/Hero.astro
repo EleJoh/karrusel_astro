@@ -1,0 +1,61 @@
+---
+const { picPath, heroText } = Astro.props;
+---
+
+<div class="hero_container">
+  <div class="hero_image">
+    <img src={picPath} alt="img" />
+    <!-- <img src="../index_pics/hero_forside.jpg" alt="hero_forside" class="hero_billede" /> -->
+    <div class="gradient"></div>
+  </div>
+  <div class="hero_text">
+    <h1>{heroText}</h1>
+  </div>
+  <!-- <div class="hero_pil">
+        <img src="hero_pil.png" alt="hero_pil" />
+      </div> -->
+</div>
+
+<style>
+  .hero_container {
+    display: grid;
+    grid-template-columns: 0.5fr 5fr 0.5fr;
+    grid-template-rows: auto;
+  }
+
+  .hero_image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    grid-column: 1/4;
+    grid-row: 1/4;
+    position: relative;
+  }
+
+  .gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-image: linear-gradient(to bottom, rgba(22, 44, 49, 0), rgba(1, 0, 20, 1));
+  }
+
+  .hero_text {
+    font-size: var(--font-size-h1-mobil);
+    text-align: center;
+    z-index: 1;
+    grid-column: 2 / span 1;
+    grid-row: 3 / span 1;
+    margin-bottom: 3%;
+  }
+
+  /* .hero_pil {
+      grid-column: 2 / span 1;
+      grid-row: 3 / span 1;
+      text-align: center;
+      z-index: 1;
+      grid-column: 2 / span 1;
+      grid-row: 4 / span 1;
+    } */
+</style>

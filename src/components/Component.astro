@@ -1,17 +1,17 @@
 ---
-const {h3} = Astro.props;
+import "../styles/style.css";
+const { h3 } = Astro.props;
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <!-- mobil -->
-
 <MainLayout>
-<h3>{h3}</h3>
+  <h3>{h3}</h3>
 </MainLayout>
 
 <style>
-    h3 {
-        background-color: rgb(122, 146, 138);
-        padding: 5% 0 5% 10%;
-    }
+  h3 {
+    font-size: var(--font-size-h3-mobil);
+    padding: 5% 0 5% 10%;
+  }
 </style>
