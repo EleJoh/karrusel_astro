@@ -3,24 +3,20 @@ import "../styles/style.css"
 import MainLayout from "../layouts/MainLayout.astro"
 import Buttons from "../components/Buttons.astro"
 import Footer from "../components/Footer.astro"
-//import Artistpicture from "../components/Artistpicture.astro"
+import Artistpicture from "../components/Artistpicture.astro"
 
-//const data = await fetch(
-//"https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/v1/single_artist",
-//{
- // method: "GET",
-  //headers: {
-//    apikey:
- //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6ZmRxcHNhZml3bXZyd2d2cGxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0OTQyNjAsImV4cCI6MjAyNjA3MDI2MH0.fFTeLkcvljoaUfovyl9bdu3eupBIVR6cu41Ure9RVFE"
- // },
- //}
-//).then((res) => res.json());
-//console.log(data);
+const data = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/v1/single_artist",{
+    method: "GET",
+    headers: {
+      apikey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6ZmRxcHNhZml3bXZyd2d2cGxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0OTQyNjAsImV4cCI6MjAyNjA3MDI2MH0.fFTeLkcvljoaUfovyl9bdu3eupBIVR6cu41Ure9RVFE"
+    },
+  }
+).then((res) => res.json());
+console.log(data);
 
 ---
-
-
-
+         
 
   <head>
     <meta charset="utf-8" />
@@ -31,8 +27,7 @@ import Footer from "../components/Footer.astro"
 
   <body>
     <main>
-          <!-- <Buttons variant="primary" size="small">For newsletter</Button>
-			<Buttons variant="secondary" size="large">For lineup site </Button>-->
+   
 <MainLayout title="">
 
       <!--Skriv alt indhold her - vent måske med hero eller prøv at lave den  -->
@@ -46,16 +41,20 @@ import Footer from "../components/Footer.astro"
   <h3>FRIDAY</h3>
   <h3>SATURDAY</h3>
  </div>
- <!-- <section class="artists">
-  {
-  data.map((artist) => {
-     return <Artistpicture data={artist} />;
-  })
-  }
-
-  <Artistpicture />-->
-
+ <section class="artists">
+  {data.map((artist) => {
+    return <Artistpicture data={artist} />;
+  })}
+  <div class="artist_list">
+<h4>AJA GULRIS <span class="dot"></span> AJA GULRIS</h4>
+  </div>
+  
+  
+  
  </section>
+
+  <!-- <Buttons variant="primary" size="small">For newsletter</Button>
+			<Buttons variant="secondary" size="large">For lineup site </Button>-->
 
 </MainLayout>
     </main>
@@ -99,6 +98,21 @@ h3{
 .days{
   display: flex;
    justify-content: space-between;
+
+}
+
+h4{
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 3rem;
+  font-weight: 200;
+}
+.dot{
+  padding: 1rem;
+}
+
+.dot::after {
+  content: ' ·';
 
 }
 
