@@ -8,7 +8,7 @@ import Navigation from "../components/Navigation.astro";
 import Hero from "../components/Hero.astro";
 import Card from "../components/Card.astro";
 
-const data = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/v1/single_artist?", {
+const data = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/v1/single_artist?day=eq.thursday", {
   method: "GET",
   headers: {
     apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6ZmRxcHNhZml3bXZyd2d2cGxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0OTQyNjAsImV4cCI6MjAyNjA3MDI2MH0.fFTeLkcvljoaUfovyl9bdu3eupBIVR6cu41Ure9RVFE",
@@ -26,7 +26,7 @@ console.log(data);
 <body>
   <Navigation />
   <main>
-    <Hero picPath="../hero_images/lineup.png" heroText="Lineup 2024" />
+    <Hero picPath="../hero_images/lineup.webp" heroText="Lineup 2024" />
 
     <MainLayout title="">
       <!--Skriv alt indhold her - vent måske med hero eller prøv at lave den  -->
@@ -63,7 +63,7 @@ console.log(data);
 
 <style>
   .hero {
-    background-image: url("/hero_images/lineup.png");
+    background-image: url("/hero_images/lineup.webp");
     background-size: cover;
     height: 300px;
     background-position: center;
