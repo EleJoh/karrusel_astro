@@ -1,5 +1,5 @@
 ---
-
+import Buttons from "../components/Buttons.astro";
 ---
 
 <article>
@@ -11,6 +11,9 @@
       <h4 class="h4_news">STAY UPDATED</h4>
       <div class="newsletter"><p class="grey_h4">NAME</p></div>
       <div class="newsletter_2"><p class="grey_h4">EMAIL</p></div>
+      <div class="button">
+        <Buttons class="button" variant="primary" size="small">SUBSCRIBE</Buttons>
+      </div>
     </div>
   </div>
 </article>
@@ -39,7 +42,7 @@
     z-index: 1;
     grid-column: 2 / span 1;
     grid-row: 3 / span 1;
-    margin: 0 0 70% 25%;
+    margin: 0 0 40% 25%;
   }
 
   .newsletter {
@@ -67,5 +70,40 @@
   .h4_news {
     font-size: var(--font-size-h4-mobil);
     padding: 0 0 10px 35px;
+    text-align: center;
+  }
+
+  .button {
+    text-align: center;
+    padding: 5% 0 0 25%;
+  }
+
+  @media screen and (min-width: 800px) {
+    .newsletter {
+      border: 2px solid white;
+      padding: 10px;
+      background: transparent;
+      width: 530px;
+      height: 70px;
+    }
+    .newsletter_2 {
+      border-right: 2px solid white;
+      border-left: 2px solid white;
+      border-bottom: 2px solid white;
+      padding: 10px;
+      background: transparent;
+      width: 530px;
+      height: 70px;
+    }
+
+    .grey_h4 {
+      color: var(--darker_grey);
+      font-size: var(--font-size-h2-mobil);
+    }
+
+    .h4_news {
+      font-size: var(--font-size-h2-mobil);
+      padding: 0 0 10px 85px;
+    }
   }
 </style>

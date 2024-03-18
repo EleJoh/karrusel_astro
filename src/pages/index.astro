@@ -15,7 +15,7 @@ import Hero from "../components/Hero.astro";
     <main>
       <Hero picPath="../index_pics/hero_forside.webp" heroText="3 days of house, disco and techno in the woods." />
       <p class="p_hero">Experience 3 days of house, disco, and techno nestled in a magical forest at KARRUSEL festival! Join us at Refshaleoen, Copenhagen, from August 29 - 31, 2024!</p>
-      <Card name="LINEUP 2024" imgPath="../index_pics/lineup_forside.webp" />
+      <Card class="hero_index_pic" name="LINEUP 2024" imgPath="../index_pics/lineup_forside.webp" />
       <Card name="TICKETS" imgPath="../index_pics/tickets_forside.webp" />
       <Component h3="RELEVANT" />
       <Card name="INFO OG MAP" imgPath="../index_pics/map_forside.webp" />
@@ -33,5 +33,13 @@ import Hero from "../components/Hero.astro";
   .p_hero {
     margin: 5% 15%;
     text-align: center;
+  }
+
+  @media screen and (min-width: 800px) {
+    .p_hero {
+      margin: 5% 15%;
+      text-align: center;
+      font-size: var();
+    }
   }
 </style>

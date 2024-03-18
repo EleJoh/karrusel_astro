@@ -3,7 +3,7 @@ import "../styles/style.css";
 import MainLayout from "../layouts/MainLayout.astro";
 // import Buttons from "../components/Buttons.astro"
 import Footer from "../components/Footer.astro";
-import Artistpicture from "../components/Artistpicture.astro";
+// import Artistpicture from "../components/Artistpicture.astro";
 import Navigation from "../components/Navigation.astro";
 import Hero from "../components/Hero.astro";
 import Card from "../components/Card.astro";
@@ -45,7 +45,7 @@ console.log(data);
       <section class="artists">
         {
           data.map((artist) => {
-            return <Card name={artist.name} imgPath={`${artist.day}/${artist.image}`} />;
+            return <Card data={artist} name={artist.name} imgPath={`${artist.day}/${artist.image}`} />;
             //return <Artistpicture data={artist} />;
           })
         }

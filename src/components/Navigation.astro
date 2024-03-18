@@ -40,7 +40,7 @@ import "../styles/style.css";
     /* position: relative; */
     align-items: center;
     padding: 10px 20px;
-    background-color: var(--dark_violet);
+    background-color: transparent;
     /* background-image: linear-gradient(to top, rgba(22, 44, 49, 0), rgba(1, 0, 20, 1)); */
   }
   .h2_menu {
@@ -65,5 +65,30 @@ import "../styles/style.css";
   .icon,
   .icon_heart {
     margin-left: 20px;
+  }
+
+  @media screen and (min-width: 800px) {
+    header {
+      display: flex;
+      justify-content: space-between;
+      /* position: relative; */
+      align-items: center;
+      padding: 30px 40px;
+    }
+
+    .logo {
+      margin-right: 35px;
+    }
+    .icon,
+    .icon_heart {
+      margin-left: 30px;
+    }
+
+    .h2_menu {
+      font-size: 1.3rem;
+    }
+    .icon_da {
+      font-size: 0.9rem;
+    }
   }
 </style>

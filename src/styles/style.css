@@ -18,12 +18,26 @@
   --font-size-h4-mobil: 1.3rem;
   --font-size-p-mobil: 1rem;
 }
+@media screen and (min-width: 800px) {
+  :root {
+    --font-size-h1-desk: 2rem;
+    --font-size-h2-desk: 1.5rem;
+    --font-size-h3-desk: 1.7rem;
+    --font-size-h4-desk: 2rem;
+    --font-size-p-desk: 1rem;
+  }
+}
 
 h1,
 h2 {
   font-family: "Monoton", system-ui;
   color: var(--white);
 }
+
+/* h1 {
+  font-size: var(--font-size-h1-mobil);
+} */
+
 h3,
 h4,
 p {
