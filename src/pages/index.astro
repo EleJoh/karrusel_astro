@@ -3,6 +3,7 @@ import "../styles/style.css";
 import MainLayout from "../layouts/MainLayout.astro";
 import Footer from "../components/Footer.astro";
 import Card from "../components/Card.astro";
+import IndexCard from "../components/IndexCard.astro";
 import Component from "../components/Component.astro";
 import Navigation from "../components/Navigation.astro";
 import Newsletter from "../components/Newsletter.astro";
@@ -18,21 +19,21 @@ import Hero from "../components/Hero.astro";
       <div class="index_indhold">
         <div class="lineup_tickets">
           <a href="/lineup" class="lineup_a">
-            <Card class="hero_index_pic" name="LINEUP 2024" imgPath="../index_pics/lin_24_s.webp" />
+            <IndexCard class="hero_index_pic" name="LINEUP 2024" imgPath="../index_pics/lin_24_s.webp" link="lineup" />
           </a>
-          <Card name="TICKETS" imgPath="../index_pics/tickets_s.webp" />
+          <IndexCard name="TICKETS" imgPath="../index_pics/tickets_s.webp" />
         </div>
         <Component h3="RELEVANT" />
         <div class="relevant_pics">
-          <Card name="INFO OG MAP" imgPath="../index_pics/map_s.webp" />
-          <Card name="VOLUNTEERING" imgPath="../index_pics/vol_s.webp" />
-          <Card name="COMMUNITY" imgPath="../index_pics/com_s.webp" />
+          <IndexCard name="INFO OG MAP" imgPath="../index_pics/map_s.webp" />
+          <IndexCard name="VOLUNTEERING" imgPath="../index_pics/vol_s.webp" />
+          <IndexCard name="COMMUNITY" imgPath="../index_pics/com_s.webp" />
         </div>
         <Component h3="THROWBACK" />
         <div class="throwback_pics">
-          <Card id="karousel" name="LINEUP 23" imgPath="../index_pics/lin_23_s.webp" />
-          <Card id="karousel" name="LINEUP 23" imgPath="../index_pics/lin_22_s.webp" />
-          <Card id="karousel" name="LINEUP 23" imgPath="../index_pics/lin_21_s.webp" />
+          <IndexCard id="karousel" name="LINEUP 23" imgPath="../index_pics/lin_23_s.webp" />
+          <IndexCard id="karousel" name="LINEUP 23" imgPath="../index_pics/lin_22_s.webp" />
+          <IndexCard id="karousel" name="LINEUP 23" imgPath="../index_pics/lin_21_s.webp" />
         </div>
       </div>
       <MainLayout />

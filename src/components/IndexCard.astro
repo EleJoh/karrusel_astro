@@ -1,0 +1,61 @@
+---
+const { name, imgPath, link } = Astro.props;
+//const { data } = Astro.props;
+---
+
+<a href={`/${link}`}>
+  <article>
+    <div class="pic_container">
+      <div class="pic">
+        <!-- <img src={data.imgPath} alt="img" /> -->
+        <img src={imgPath} alt="img" />
+        <div class="gradient"></div>
+      </div>
+      <div class="pic_text">
+        <h2>{name}</h2>
+        <!-- <h2>{data.name}</h2> -->
+      </div>
+    </div>
+  </article>
+
+  <style>
+    /* Pic_container component*/
+    .pic_container {
+      display: grid;
+      grid-template-columns: 0.5fr 5fr 0.5fr;
+      grid-template-rows: auto;
+      margin-bottom: 5%;
+    }
+
+    .pic {
+      width: 100%;
+      height: auto;
+
+      grid-column: 1/4;
+      grid-row: 1/4;
+      position: relative;
+    }
+
+    .gradient {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background-image: linear-gradient(to bottom, rgba(22, 44, 49, 0), rgba(1, 0, 20, 1));
+    }
+
+    .pic_text {
+      font-size: var(--font-size-h2-mobil);
+      text-align: center;
+      z-index: 1;
+      grid-column: 2 / span 1;
+      grid-row: 3 / span 1;
+      margin-bottom: 3%;
+    }
+
+    #karousel {
+      margin-bottom: 0;
+    }
+  </style>
+</a>
