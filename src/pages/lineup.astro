@@ -37,103 +37,91 @@ console.log(dataSaturday);
     <meta name="generator" content={Astro.generator} />
     <title>Lineup 2024</title>
   </head>-->
-<body>
-  <Navigation />
-  <main>
-    <Hero picPath="../hero_images/lineup.webp" heroText="Lineup 2024" />
+<MainLayout title="">
+  <Hero picPath="../hero_images/lineup.webp" heroText="Lineup 2024" />
 
-    <MainLayout title="">
-      <!--Skriv alt indhold her - vent måske med hero eller prøv at lave den  -->
-      <!--<div class="hero">
- </div>
- <div class="gradient">
-  <h1>Lineup 2024</h1>
- </div>
-  -->
-      <div class="days">
-        <div class="thur">
-          <h3>THURSDAY</h3>
-        </div>
-        <div class="fri">
-          <h3>FRIDAY</h3>
-        </div>
-        <div class="sat">
-          <h3>SATURDAY</h3>
-        </div>
-      </div>
+  <div class="days">
+    <div class="thur">
+      <h3>THURSDAY</h3>
+    </div>
+    <div class="fri">
+      <h3>FRIDAY</h3>
+    </div>
+    <div class="sat">
+      <h3>SATURDAY</h3>
+    </div>
+  </div>
 
-      <div id="day">
-        <h3>THURSDAY</h3>
-      </div>
-      <section class="artists">
-        {
-          dataThursday.map((artist) => {
-            return <Card name={artist.name} imgPath={`${artist.day}/${artist.image}`} slug={artist.slug} />;
-            //return <Artistpicture data={artist} />;
-          })
-        }
-        <div class="artist_list">
-          <h4>
-            ANNA LOGIC<span class="dot"></span>
-            BOOGIE ROOCKIE<span class="dot"></span>DEE BROWN <span class="dot"></span> DJ SEA VIEW<span class="dot"></span> DJUMA SOUND SYSTEM <span class="dot"></span> ESKI <span class="dot"></span>
-            HARRSISON HEAT <span class="dot"></span> LUCKY LUBE
-          </h4>
-        </div>
+  <div id="day">
+    <h3>THURSDAY</h3>
+  </div>
+  <section class="artists">
+    {
+      dataThursday.map((artist) => {
+        return <Card name={artist.name} imgPath={`/${artist.day}/${artist.image}`} slug={artist.slug} />;
+        //return <Artistpicture data={artist} />;
+      })
+    }
+    <div class="artist_list">
+      <h4>
+        ANNA LOGIC<span class="dot"></span>
+        BOOGIE ROOCKIE<span class="dot"></span>DEE BROWN <span class="dot"></span> DJ SEA VIEW<span class="dot"></span> DJUMA SOUND SYSTEM <span class="dot"></span> ESKI <span class="dot"></span>
+        HARRSISON HEAT <span class="dot"></span> LUCKY LUBE
+      </h4>
+    </div>
 
-        <div class="buttons">
-          <Buttons variant="secondary" size="large">PLAYLIST OF THE DAY</Buttons><Buttons variant="secondary" size="large">DOWNLOAD PROGRAM</Buttons>
-        </div>
+    <div class="buttons">
+      <Buttons variant="secondary" size="large">PLAYLIST OF THE DAY</Buttons><Buttons variant="secondary" size="large">DOWNLOAD PROGRAM</Buttons>
+    </div>
 
-        <div id="day2">
-          <h3>FRIDAY</h3>
-        </div>
-      </section>
-      <section>
-        {
-          dataFriday.map((artist) => {
-            return <Card name={artist.name} imgPath={`${artist.day}/${artist.image}`} slug={artist.slug} />;
-            //return <Artistpicture data={artist} />;
-          })
-        }
-      </section>
-      <div class="artist_list">
-        <h4>
-          RSS DISCO<span class="dot"></span>
-          RICHIE HAWTON<span class="dot"></span>POWERSTRANGER <span class="dot"></span> ANDHIM<span class="dot"></span> DJ SEINFIELD <span class="dot"></span> FRIDA DARKO <span class="dot"></span>
-          OKINE <span class="dot"></span> FAVORITE THINGS
-        </h4>
-      </div>
+    <div id="day2">
+      <h3>FRIDAY</h3>
+    </div>
+  </section>
+  <section>
+    {
+      dataFriday.map((artist) => {
+        return <Card name={artist.name} imgPath={`/${artist.day}/${artist.image}`} slug={artist.slug} />;
+        //return <Artistpicture data={artist} />;
+      })
+    }
+  </section>
+  <div class="artist_list">
+    <h4>
+      RSS DISCO<span class="dot"></span>
+      RICHIE HAWTON<span class="dot"></span>POWERSTRANGER <span class="dot"></span> ANDHIM<span class="dot"></span> DJ SEINFIELD <span class="dot"></span> FRIDA DARKO <span class="dot"></span>
+      OKINE <span class="dot"></span> FAVORITE THINGS
+    </h4>
+  </div>
 
-      <div class="buttons">
-        <Buttons variant="secondary" size="large">PLAYLIST OF THE DAY</Buttons><Buttons variant="secondary" size="large">DOWNLOAD PROGRAM</Buttons>
-      </div>
+  <div class="buttons">
+    <Buttons variant="secondary" size="large">PLAYLIST OF THE DAY</Buttons><Buttons variant="secondary" size="large">DOWNLOAD PROGRAM</Buttons>
+  </div>
 
-      <div id="day3">
-        <h3>SATURDAY</h3>
-      </div>
-      <section>
-        {
-          dataSaturday.map((artist) => {
-            return <Card name={artist.name} imgPath={`${artist.day}/${artist.image}`} slug={artist.slug} />;
-            //return <Artistpicture data={artist} />;
-          })
-        }
-      </section>
-      <div class="artist_list">
-        <h4>
-          DARWIN<span class="dot"></span>
-          MALTE SANGAARD<span class="dot"></span>YUNG SINGH<span class="dot"></span>KERELA DUST<span class="dot"></span>MORTOX SELECTA MAL <span class="dot"></span>OKINE <span class="dot"></span>
-          RUSSEL E.L. BUTLER<span class="dot"></span> TADOH
-        </h4>
-      </div>
+  <div id="day3">
+    <h3>SATURDAY</h3>
+  </div>
+  <section>
+    {
+      dataSaturday.map((artist) => {
+        return <Card name={artist.name} imgPath={`/${artist.day}/${artist.image}`} slug={artist.slug} />;
+        //return <Artistpicture data={artist} />;
+      })
+    }
+  </section>
+  <div class="artist_list">
+    <h4>
+      DARWIN<span class="dot"></span>
+      MALTE SANGAARD<span class="dot"></span>YUNG SINGH<span class="dot"></span>KERELA DUST<span class="dot"></span>MORTOX SELECTA MAL <span class="dot"></span>OKINE <span class="dot"></span>
+      RUSSEL E.L. BUTLER<span class="dot"></span> TADOH
+    </h4>
+  </div>
 
-      <div class="buttons">
-        <Buttons variant="secondary" size="large">PLAYLIST OF THE DAY</Buttons><Buttons variant="secondary" size="large">DOWNLOAD PROGRAM</Buttons>
-      </div>
-    </MainLayout>
-  </main>
-  <Footer />
-</body>
+  <div class="buttons">
+    <Buttons variant="secondary" size="large">PLAYLIST OF THE DAY</Buttons><Buttons variant="secondary" size="large">DOWNLOAD PROGRAM</Buttons>
+  </div>
+</MainLayout>
+<Footer />
 
 <style>
   .hero {
