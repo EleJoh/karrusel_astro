@@ -91,7 +91,7 @@ console.log(dataSaturday);
       <section>
         {
           dataFriday.map((artist) => {
-            return <Card name={artist.name} imgPath={`${artist.day}/${artist.image}`} />;
+            return <Card name={artist.name} imgPath={`${artist.day}/${artist.image}`} slug={artist.slug} />;
             //return <Artistpicture data={artist} />;
           })
         }
@@ -114,7 +114,7 @@ console.log(dataSaturday);
       <section>
         {
           dataSaturday.map((artist) => {
-            return <Card name={artist.name} imgPath={`${artist.day}/${artist.image}`} />;
+            return <Card name={artist.name} imgPath={`${artist.day}/${artist.image}`} slug={artist.slug} />;
             //return <Artistpicture data={artist} />;
           })
         }
