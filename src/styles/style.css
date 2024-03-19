@@ -13,7 +13,7 @@
 
   /* typography */
   --font-size-h1-mobil: 0.7rem;
-  --font-size-h2-mobil: 2rem;
+  --font-size-h2-mobil: 1rem;
   --font-size-h3-mobil: 1.5rem;
   --font-size-h4-mobil: 1.3rem;
   --font-size-p-mobil: 1rem;
@@ -66,7 +66,8 @@ img {
 body {
   height: 100%;
   /* line-height: 1.6; */
-  background-image: linear-gradient(to bottom, rgba(11, 11, 23, 1), rgba(42, 43, 73, 1));
+  /* background-image: linear-gradient(to top, rgba(11, 11, 23, 1), rgba(42, 43, 73, 1)); */
+  background-color: rgb(27, 27, 57);
   overscroll-behavior-block: none;
 }
 

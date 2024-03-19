@@ -1,6 +1,6 @@
 ---
 import "../styles/style.css";
-// import MainLayout from "../layouts/MainLayout.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 import Footer from "../components/Footer.astro";
 import Card from "../components/Card.astro";
 import Component from "../components/Component.astro";
@@ -15,14 +15,27 @@ import Hero from "../components/Hero.astro";
     <main>
       <Hero picPath="../index_pics/hero_forside.webp" heroText="3 days of house, disco and techno in the woods." />
       <p class="p_hero">Experience 3 days of house, disco, and techno nestled in a magical forest at KARRUSEL festival! Join us at Refshaleoen, Copenhagen, from August 29 - 31, 2024!</p>
-      <Card class="hero_index_pic" name="LINEUP 2024" imgPath="../index_pics/lineup_forside.webp" />
-      <Card name="TICKETS" imgPath="../index_pics/tickets_forside.webp" />
-      <Component h3="RELEVANT" />
-      <Card name="INFO OG MAP" imgPath="../index_pics/map_forside.webp" />
-      <Card name="VOLUNTEERING" imgPath="../index_pics/volunteering_forside.webp" />
-      <Card name="COMMUNITY" imgPath="../index_pics/community_forside.webp" />
-      <Component h3="THROWBACK" />
-      <Card id="karousel" name="LINEUP 23" imgPath="../index_pics/lineup23_forside.webp" />
+      <div class="index_indhold">
+        <div class="lineup_tickets">
+          <a href="/lineup" class="lineup_a">
+            <Card class="hero_index_pic" name="LINEUP 2024" imgPath="../index_pics/lin_24_s.webp" />
+          </a>
+          <Card name="TICKETS" imgPath="../index_pics/tickets_s.webp" />
+        </div>
+        <Component h3="RELEVANT" />
+        <div class="relevant_pics">
+          <Card name="INFO OG MAP" imgPath="../index_pics/map_s.webp" />
+          <Card name="VOLUNTEERING" imgPath="../index_pics/vol_s.webp" />
+          <Card name="COMMUNITY" imgPath="../index_pics/com_s.webp" />
+        </div>
+        <Component h3="THROWBACK" />
+        <div class="throwback_pics">
+          <Card id="karousel" name="LINEUP 23" imgPath="../index_pics/lin_23_s.webp" />
+          <Card id="karousel" name="LINEUP 23" imgPath="../index_pics/lin_22_s.webp" />
+          <Card id="karousel" name="LINEUP 23" imgPath="../index_pics/lin_21_s.webp" />
+        </div>
+      </div>
+      <MainLayout />
       <Newsletter />
     </main>
   </body>
@@ -35,11 +48,33 @@ import Hero from "../components/Hero.astro";
     text-align: center;
   }
 
+  .lineup_a {
+    text-decoration: none;
+  }
+
   @media screen and (min-width: 800px) {
     .p_hero {
       margin: 5% 15%;
       text-align: center;
       font-size: var();
+    }
+
+    .lineup_tickets {
+      display: flex;
+      gap: 1%;
+      margin: 0%;
+    }
+
+    .relevant_pics {
+      display: flex;
+      gap: 1%;
+      margin: 0 3%;
+    }
+
+    .throwback_pics {
+      display: flex;
+      gap: 1%;
+      margin: 0 3%;
     }
   }
 </style>
