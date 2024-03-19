@@ -223,16 +223,36 @@ console.log(dataSaturday);
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Get the element to scroll to
-    var targetElement = document.getElementById("day2");
+    // Function to scroll to the specified target element
+    function scrollToElement(targetId) {
+      var targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
 
-    // Get the element that triggers the scroll
-    var triggerElement = document.querySelector(".fri");
+    // Get the elements that trigger the scroll
+    var thurTriggerElement = document.querySelector(".thur");
+    var friTriggerElement = document.querySelector(".fri");
+    var satTriggerElement = document.querySelector(".sat");
 
-    // Add click event listener to the trigger element
-    triggerElement.addEventListener("click", function () {
-      // Scroll to the target element
-      targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
+    // Add click event listeners to each trigger element
+    if (thurTriggerElement) {
+      thurTriggerElement.addEventListener("click", function () {
+        scrollToElement("day");
+      });
+    }
+
+    if (friTriggerElement) {
+      friTriggerElement.addEventListener("click", function () {
+        scrollToElement("day2");
+      });
+    }
+
+    if (satTriggerElement) {
+      satTriggerElement.addEventListener("click", function () {
+        scrollToElement("day3");
+      });
+    }
   });
 </script>
