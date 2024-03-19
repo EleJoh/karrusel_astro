@@ -14,18 +14,21 @@ const dataThursday = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/
     apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6ZmRxcHNhZml3bXZyd2d2cGxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0OTQyNjAsImV4cCI6MjAyNjA3MDI2MH0.fFTeLkcvljoaUfovyl9bdu3eupBIVR6cu41Ure9RVFE",
   },
 }).then((res) => res.json());
+
 const dataFriday = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/v1/single_artist?day=eq.friday", {
   method: "GET",
   headers: {
     apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6ZmRxcHNhZml3bXZyd2d2cGxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0OTQyNjAsImV4cCI6MjAyNjA3MDI2MH0.fFTeLkcvljoaUfovyl9bdu3eupBIVR6cu41Ure9RVFE",
   },
 }).then((res) => res.json());
+
 const dataSaturday = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/v1/single_artist?day=eq.saturday", {
   method: "GET",
   headers: {
     apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6ZmRxcHNhZml3bXZyd2d2cGxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0OTQyNjAsImV4cCI6MjAyNjA3MDI2MH0.fFTeLkcvljoaUfovyl9bdu3eupBIVR6cu41Ure9RVFE",
   },
 }).then((res) => res.json());
+
 console.log(dataThursday);
 console.log(dataFriday);
 console.log(dataSaturday);
@@ -91,7 +94,7 @@ console.log(dataSaturday);
       <section>
         {
           dataFriday.map((artist) => {
-            return <Card name={artist.name} imgPath={`${artist.day}/${artist.image}`} slug={artist.slug} />;
+            return <Card name={artist.name} imgPath={`${artist.day}/${artist.image}`} />;
             //return <Artistpicture data={artist} />;
           })
         }
@@ -114,7 +117,7 @@ console.log(dataSaturday);
       <section>
         {
           dataSaturday.map((artist) => {
-            return <Card name={artist.name} imgPath={`${artist.day}/${artist.image}`} slug={artist.slug} />;
+            return <Card name={artist.name} imgPath={`${artist.day}/${artist.image}`} />;
             //return <Artistpicture data={artist} />;
           })
         }
@@ -223,36 +226,16 @@ console.log(dataSaturday);
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Function to scroll to the specified target element
-    function scrollToElement(targetId) {
-      var targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
+    // Get the element to scroll to
+    var targetElement = document.getElementById("day2");
 
-    // Get the elements that trigger the scroll
-    var thurTriggerElement = document.querySelector(".thur");
-    var friTriggerElement = document.querySelector(".fri");
-    var satTriggerElement = document.querySelector(".sat");
+    // Get the element that triggers the scroll
+    var triggerElement = document.querySelector(".fri");
 
-    // Add click event listeners to each trigger element
-    if (thurTriggerElement) {
-      thurTriggerElement.addEventListener("click", function () {
-        scrollToElement("day");
-      });
-    }
-
-    if (friTriggerElement) {
-      friTriggerElement.addEventListener("click", function () {
-        scrollToElement("day2");
-      });
-    }
-
-    if (satTriggerElement) {
-      satTriggerElement.addEventListener("click", function () {
-        scrollToElement("day3");
-      });
-    }
+    // Add click event listener to the trigger element
+    triggerElement.addEventListener("click", function () {
+      // Scroll to the target element
+      targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
   });
 </script>
