@@ -1,20 +1,34 @@
 ---
 import "../styles/style.css";
 import MainLayout from "../layouts/MainLayout.astro";
-// import Buttons from "../components/Buttons.astro"
+import Buttons from "../components/Buttons.astro";
 import Footer from "../components/Footer.astro";
-// import Artistpicture from "../components/Artistpicture.astro";
+import Artistpicture from "../components/Artistpicture.astro";
 import Navigation from "../components/Navigation.astro";
 import Hero from "../components/Hero.astro";
 import Card from "../components/Card.astro";
 
-const data = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/v1/single_artist?day=eq.thursday", {
+const dataThursday = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/v1/single_artist?day=eq.thursday", {
   method: "GET",
   headers: {
     apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6ZmRxcHNhZml3bXZyd2d2cGxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0OTQyNjAsImV4cCI6MjAyNjA3MDI2MH0.fFTeLkcvljoaUfovyl9bdu3eupBIVR6cu41Ure9RVFE",
   },
 }).then((res) => res.json());
-console.log(data);
+const dataFriday = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/v1/single_artist?day=eq.friday", {
+  method: "GET",
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6ZmRxcHNhZml3bXZyd2d2cGxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0OTQyNjAsImV4cCI6MjAyNjA3MDI2MH0.fFTeLkcvljoaUfovyl9bdu3eupBIVR6cu41Ure9RVFE",
+  },
+}).then((res) => res.json());
+const dataSaturday = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/v1/single_artist?day=eq.saturday", {
+  method: "GET",
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6ZmRxcHNhZml3bXZyd2d2cGxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0OTQyNjAsImV4cCI6MjAyNjA3MDI2MH0.fFTeLkcvljoaUfovyl9bdu3eupBIVR6cu41Ure9RVFE",
+  },
+}).then((res) => res.json());
+console.log(dataThursday);
+console.log(dataFriday);
+console.log(dataSaturday);
 ---
 
 <!-- <head>
@@ -37,25 +51,85 @@ console.log(data);
  </div>
   -->
       <div class="days">
-        <h3>THURSDAY</h3>
-        <h3>FRIDAY</h3>
-        <h3>SATURDAY</h3>
+        <div class="thur">
+          <h3>THURSDAY</h3>
+        </div>
+        <div class="fri">
+          <h3>FRIDAY</h3>
+        </div>
+        <div class="sat">
+          <h3>SATURDAY</h3>
+        </div>
       </div>
 
+      <div id="day">
+        <h3>THURSDAY</h3>
+      </div>
       <section class="artists">
         {
-          data.map((artist) => {
-            return <Card data={artist} name={artist.name} imgPath={`${artist.day}/${artist.image}`} />;
+          dataThursday.map((artist) => {
+            return <Card name={artist.name} imgPath={`${artist.day}/${artist.image}`} slug={artist.slug} />;
             //return <Artistpicture data={artist} />;
           })
         }
         <div class="artist_list">
-          <h4>AJA GULRIS <span class="dot"></span> AJA GULRIS</h4>
+          <h4>
+            ANNA LOGIC<span class="dot"></span>
+            BOOGIE ROOCKIE<span class="dot"></span>DEE BROWN <span class="dot"></span> DJ SEA VIEW<span class="dot"></span> DJUMA SOUND SYSTEM <span class="dot"></span> ESKI <span class="dot"></span>
+            HARRSISON HEAT <span class="dot"></span> LUCKY LUBE
+          </h4>
+        </div>
+
+        <div class="buttons">
+          <Buttons variant="secondary" size="large">PLAYLIST OF THE DAY</Buttons><Buttons variant="secondary" size="large">DOWNLOAD PROGRAM</Buttons>
+        </div>
+
+        <div id="day2">
+          <h3>FRIDAY</h3>
         </div>
       </section>
+      <section>
+        {
+          dataFriday.map((artist) => {
+            return <Card name={artist.name} imgPath={`${artist.day}/${artist.image}`} />;
+            //return <Artistpicture data={artist} />;
+          })
+        }
+      </section>
+      <div class="artist_list">
+        <h4>
+          RSS DISCO<span class="dot"></span>
+          RICHIE HAWTON<span class="dot"></span>POWERSTRANGER <span class="dot"></span> ANDHIM<span class="dot"></span> DJ SEINFIELD <span class="dot"></span> FRIDA DARKO <span class="dot"></span>
+          OKINE <span class="dot"></span> FAVORITE THINGS
+        </h4>
+      </div>
 
-      <!-- <Buttons variant="primary" size="small">For newsletter</Button>
-			<Buttons variant="secondary" size="large">For lineup site </Button>-->
+      <div class="buttons">
+        <Buttons variant="secondary" size="large">PLAYLIST OF THE DAY</Buttons><Buttons variant="secondary" size="large">DOWNLOAD PROGRAM</Buttons>
+      </div>
+
+      <div id="day3">
+        <h3>SATURDAY</h3>
+      </div>
+      <section>
+        {
+          dataSaturday.map((artist) => {
+            return <Card name={artist.name} imgPath={`${artist.day}/${artist.image}`} />;
+            //return <Artistpicture data={artist} />;
+          })
+        }
+      </section>
+      <div class="artist_list">
+        <h4>
+          DARWIN<span class="dot"></span>
+          MALTE SANGAARD<span class="dot"></span>YUNG SINGH<span class="dot"></span>KERELA DUST<span class="dot"></span>MORTOX SELECTA MAL <span class="dot"></span>OKINE <span class="dot"></span>
+          RUSSEL E.L. BUTLER<span class="dot"></span> TADOH
+        </h4>
+      </div>
+
+      <div class="buttons">
+        <Buttons variant="secondary" size="large">PLAYLIST OF THE DAY</Buttons><Buttons variant="secondary" size="large">DOWNLOAD PROGRAM</Buttons>
+      </div>
     </MainLayout>
   </main>
   <Footer />
@@ -84,24 +158,50 @@ console.log(data);
     background: linear-gradient(to bottom: ;, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
   }
 
-  h3 {
-    padding-top: 5rem;
-    padding-bottom: 4rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    font-weight: 200;
+  .thur,
+  .fri,
+  .sat {
+    display: inline-block;
   }
 
+  .thur:hover,
+  .fri:hover,
+  .sat :hover {
+    text-decoration: underline;
+    color: var(--light_grey);
+  }
+
+  h3 {
+    font-weight: 200;
+  }
   .days {
     display: flex;
     justify-content: space-between;
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  #day,
+  #day2,
+  #day3 {
+    padding-bottom: 1rem;
+    padding-top: 0rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   h4 {
     padding-left: 2rem;
     padding-right: 2rem;
-    padding-top: 3rem;
+    padding-bottom: 2rem;
     font-weight: 200;
+    line-height: 2.5;
+  }
+
+  .artist_list {
+    text-align: center;
   }
   .dot {
     padding: 1rem;
@@ -110,4 +210,29 @@ console.log(data);
   .dot::after {
     content: " ·";
   }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 5rem;
+  }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get the element to scroll to
+    var targetElement = document.getElementById("day2");
+
+    // Get the element that triggers the scroll
+    var triggerElement = document.querySelector(".fri");
+
+    // Add click event listener to the trigger element
+    triggerElement.addEventListener("click", function () {
+      // Scroll to the target element
+      targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+</script>

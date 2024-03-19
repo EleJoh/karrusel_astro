@@ -1,17 +1,18 @@
 ---
-const {data, title} = Astro.props;
+const { data, title } = Astro.props;
 console.log(data);
 ---
 
 <article>
-     <div class="art_pict">
+  <div class="art_pict">
     <img src={data.image} alt={data.name} />
- </div>
- <div class="gradient2">
- <h2>{data.name}</h2>
- </div>
-     <a href="#0">{title}</a>
+  </div>
+  <div class="gradient2">
+    <h2>{data.name}</h2>
+  </div>
 </article>
+
+<style></style>
 
 <!-- <style>
 .gradient{
