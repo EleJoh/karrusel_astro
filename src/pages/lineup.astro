@@ -8,24 +8,19 @@ import Navigation from "../components/Navigation.astro";
 import Hero from "../components/Hero.astro";
 import Card from "../components/Card.astro";
 
-const dataThursday = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/v1/single_artist?day=eq.thursday", {
-  method: "GET",
-  headers: {
-    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6ZmRxcHNhZml3bXZyd2d2cGxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0OTQyNjAsImV4cCI6MjAyNjA3MDI2MH0.fFTeLkcvljoaUfovyl9bdu3eupBIVR6cu41Ure9RVFE",
-  },
-}).then((res) => res.json());
-const dataFriday = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/v1/single_artist?day=eq.friday", {
-  method: "GET",
-  headers: {
-    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6ZmRxcHNhZml3bXZyd2d2cGxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0OTQyNjAsImV4cCI6MjAyNjA3MDI2MH0.fFTeLkcvljoaUfovyl9bdu3eupBIVR6cu41Ure9RVFE",
-  },
-}).then((res) => res.json());
-const dataSaturday = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/v1/single_artist?day=eq.saturday", {
-  method: "GET",
-  headers: {
-    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6ZmRxcHNhZml3bXZyd2d2cGxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0OTQyNjAsImV4cCI6MjAyNjA3MDI2MH0.fFTeLkcvljoaUfovyl9bdu3eupBIVR6cu41Ure9RVFE",
-  },
-}).then((res) => res.json());
+const fetchData = async (day) => {
+  const response = await fetch(`https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/v1/single_artist?day=eq.${day}`, {
+    method: "GET",
+    headers: {
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6ZmRxcHNhZml3bXZyd2d2cGxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0OTQyNjAsImV4cCI6MjAyNjA3MDI2MH0.fFTeLkcvljoaUfovyl9bdu3eupBIVR6cu41Ure9RVFE",
+    },
+  });
+  return response.json();
+};
+
+const dataThursday = await fetchData("thursday");
+const dataFriday = await fetchData("friday");
+const dataSaturday = await fetchData("saturday");
 ---
 
 <!-- <head>
@@ -34,36 +29,59 @@ const dataSaturday = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/
     <meta name="generator" content={Astro.generator} />
     <title>Lineup 2024</title>
   </head>-->
-<MainLayout title="">
-  <Hero picPath="../hero_images/lineup.webp" heroText="Lineup 2024" />
+<MainLayout title="Lineup 2024">
+  <Hero picPath="/hero_images/lineup.webp" heroText="Lineup 2024" />
+  <div class="max_width">
+    <div class="days">
+      <div class="thur">
+        <h3>THURSDAY</h3>
+      </div>
+      <div class="fri">
+        <h3>FRIDAY</h3>
+      </div>
+      <div class="sat">
+        <h3>SATURDAY</h3>
+      </div>
+    </div>
 
-  <div class="days">
-    <div class="thur">
+    <div id="day">
       <h3>THURSDAY</h3>
     </div>
-    <div class="fri">
-      <h3>FRIDAY</h3>
-    </div>
-    <div class="sat">
-      <h3>SATURDAY</h3>
-    </div>
-  </div>
+    <section class="artists">
+      {
+        dataThursday.map((artist) => {
+          return <Card name={artist.name} imgPath={`/${artist.day}/${artist.image}`} slug={artist.slug} />;
+        })
+      }
+      <div class="artist_list">
+        <h4>
+          ANNA LOGIC<span class="dot"></span>
+          BOOGIE ROOCKIE<span class="dot"></span>DEE BROWN <span class="dot"></span> DJ SEA VIEW<span class="dot"></span> DJUMA SOUND SYSTEM <span class="dot"></span> ESKI <span class="dot"></span>
+          HARRSISON HEAT <span class="dot"></span> LUCKY LUBE
+        </h4>
+      </div>
 
-  <div id="day">
-    <h3>THURSDAY</h3>
-  </div>
-  <section class="artists">
-    {
-      dataThursday.map((artist) => {
-        return <Card name={artist.name} imgPath={`/${artist.day}/${artist.image}`} slug={artist.slug} />;
-        //return <Artistpicture data={artist} />;
-      })
-    }
+      <div class="buttons">
+        <Buttons variant="secondary" size="large">PLAYLIST OF THE DAY</Buttons><Buttons variant="secondary" size="large">DOWNLOAD PROGRAM</Buttons>
+      </div>
+
+      <div id="day2">
+        <h3>FRIDAY</h3>
+      </div>
+    </section>
+    <section>
+      {
+        dataFriday.map((artist) => {
+          return <Card name={artist.name} imgPath={`/${artist.day}/${artist.image}`} slug={artist.slug} />;
+          //return <Artistpicture data={artist} />;
+        })
+      }
+    </section>
     <div class="artist_list">
       <h4>
-        ANNA LOGIC<span class="dot"></span>
-        BOOGIE ROOCKIE<span class="dot"></span>DEE BROWN <span class="dot"></span> DJ SEA VIEW<span class="dot"></span> DJUMA SOUND SYSTEM <span class="dot"></span> ESKI <span class="dot"></span>
-        HARRSISON HEAT <span class="dot"></span> LUCKY LUBE
+        RSS DISCO<span class="dot"></span>
+        RICHIE HAWTON<span class="dot"></span>POWERSTRANGER <span class="dot"></span> ANDHIM<span class="dot"></span> DJ SEINFIELD <span class="dot"></span> FRIDA DARKO <span class="dot"></span>
+        OKINE <span class="dot"></span> FAVORITE THINGS
       </h4>
     </div>
 
@@ -71,78 +89,38 @@ const dataSaturday = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/
       <Buttons variant="secondary" size="large">PLAYLIST OF THE DAY</Buttons><Buttons variant="secondary" size="large">DOWNLOAD PROGRAM</Buttons>
     </div>
 
-    <div id="day2">
-      <h3>FRIDAY</h3>
+    <div id="day3">
+      <h3>SATURDAY</h3>
     </div>
-  </section>
-  <section>
-    {
-      dataFriday.map((artist) => {
-        return <Card name={artist.name} imgPath={`/${artist.day}/${artist.image}`} slug={artist.slug} />;
-        //return <Artistpicture data={artist} />;
-      })
-    }
-  </section>
-  <div class="artist_list">
-    <h4>
-      RSS DISCO<span class="dot"></span>
-      RICHIE HAWTON<span class="dot"></span>POWERSTRANGER <span class="dot"></span> ANDHIM<span class="dot"></span> DJ SEINFIELD <span class="dot"></span> FRIDA DARKO <span class="dot"></span>
-      OKINE <span class="dot"></span> FAVORITE THINGS
-    </h4>
-  </div>
+    <section>
+      {
+        dataSaturday.map((artist) => {
+          return <Card name={artist.name} imgPath={`/${artist.day}/${artist.image}`} slug={artist.slug} />;
+          //return <Artistpicture data={artist} />;
+        })
+      }
+    </section>
+    <div class="artist_list">
+      <h4>
+        DARWIN<span class="dot"></span>
+        MALTE SANGAARD<span class="dot"></span>YUNG SINGH<span class="dot"></span>KERELA DUST<span class="dot"></span>MORTOX SELECTA MAL <span class="dot"></span>OKINE <span class="dot"></span>
+        RUSSEL E.L. BUTLER<span class="dot"></span> TADOH
+      </h4>
+    </div>
 
-  <div class="buttons">
-    <Buttons variant="secondary" size="large">PLAYLIST OF THE DAY</Buttons><Buttons variant="secondary" size="large">DOWNLOAD PROGRAM</Buttons>
-  </div>
-
-  <div id="day3">
-    <h3>SATURDAY</h3>
-  </div>
-  <section>
-    {
-      dataSaturday.map((artist) => {
-        return <Card name={artist.name} imgPath={`/${artist.day}/${artist.image}`} slug={artist.slug} />;
-        //return <Artistpicture data={artist} />;
-      })
-    }
-  </section>
-  <div class="artist_list">
-    <h4>
-      DARWIN<span class="dot"></span>
-      MALTE SANGAARD<span class="dot"></span>YUNG SINGH<span class="dot"></span>KERELA DUST<span class="dot"></span>MORTOX SELECTA MAL <span class="dot"></span>OKINE <span class="dot"></span>
-      RUSSEL E.L. BUTLER<span class="dot"></span> TADOH
-    </h4>
-  </div>
-
-  <div class="buttons">
-    <Buttons variant="secondary" size="large">PLAYLIST OF THE DAY</Buttons><Buttons variant="secondary" size="large">DOWNLOAD PROGRAM</Buttons>
+    <div class="buttons">
+      <Buttons variant="secondary" size="large">PLAYLIST OF THE DAY</Buttons><Buttons variant="secondary" size="large">DOWNLOAD PROGRAM</Buttons>
+    </div>
   </div>
 </MainLayout>
 <Footer />
 
 <style>
-  .hero {
-    background-image: url("/hero_images/lineup.webp");
-    background-size: cover;
-    height: 300px;
-    background-position: center;
-    justify-content: center;
-  }
-
-  .gradient h1 {
-    padding-top: 17rem;
-  }
-
-  .gradient {
+  .max_width {
+    max-width: 80%;
     text-align: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 55%;
-    background: linear-gradient(to bottom: ;, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    margin: 0 auto;
   }
-
   .thur,
   .fri,
   .sat {
@@ -177,6 +155,12 @@ const dataSaturday = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/
     padding-right: 2rem;
   }
 
+  .artist_list {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    text-align: center;
+  }
+
   h4 {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -185,9 +169,6 @@ const dataSaturday = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/
     line-height: 2.5;
   }
 
-  .artist_list {
-    text-align: center;
-  }
   .dot {
     padding: 1rem;
   }
@@ -216,28 +197,19 @@ const dataSaturday = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/
       }
     }
 
-    // Get the elements that trigger the scroll
-    var thurTriggerElement = document.querySelector(".thur");
-    var friTriggerElement = document.querySelector(".fri");
-    var satTriggerElement = document.querySelector(".sat");
-
-    // Add click event listeners to each trigger element
-    if (thurTriggerElement) {
-      thurTriggerElement.addEventListener("click", function () {
-        scrollToElement("day");
-      });
+    // Function to add click event listener to trigger element
+    function addClickListener(triggerClass, targetId) {
+      var triggerElement = document.querySelector(triggerClass);
+      if (triggerElement) {
+        triggerElement.addEventListener("click", function () {
+          scrollToElement(targetId);
+        });
+      }
     }
 
-    if (friTriggerElement) {
-      friTriggerElement.addEventListener("click", function () {
-        scrollToElement("day2");
-      });
-    }
-
-    if (satTriggerElement) {
-      satTriggerElement.addEventListener("click", function () {
-        scrollToElement("day3");
-      });
-    }
+    // Add click event listeners to trigger elements
+    addClickListener(".thur", "day");
+    addClickListener(".fri", "day2");
+    addClickListener(".sat", "day3");
   });
 </script>
