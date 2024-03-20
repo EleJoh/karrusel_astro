@@ -1,0 +1,22 @@
+<!-- ---
+import Component from "../components/Component.astro";
+import Card from "../components/Card.astro";
+---
+
+<Card name={(myData as any).name} imgPath={`/${(myData as any).day}/${(myData as any).image}`} slug={(myData as any).slug} />;
+<div class="a_padding">
+  <a class="a_go_back" href="/lineup"><p class="a_go_back">GO BACK</p></a>
+</div>
+<div class="loc_show">
+  <p>LOCATION : {(myData as any).location}</p>
+  <p>SHOW : {(myData as any).show}</p>
+</div>
+
+<div class="desc">
+  <p>{(myData as any).description}</p>
+</div>
+<div class="spotify">
+  <img class="img_spotify" src="../spotify.webp" alt="" />
+  <div class="name_spotify">{(myData as any).name}</div>
+</div>
+<Component /> -->
