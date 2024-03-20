@@ -8,40 +8,37 @@ import Component from "../components/Component.astro";
 import Navigation from "../components/Navigation.astro";
 import Newsletter from "../components/Newsletter.astro";
 import Hero from "../components/Hero.astro";
+const { forside } = Astro.props;
 ---
 
-<html lang="en">
-  <body>
-    <Navigation />
-    <main>
-      <Hero picPath="../index_pics/hero_forside.webp" heroText="3 days of house, disco and techno in the woods." />
-      <p class="p_hero">Experience 3 days of house, disco, and techno nestled in a magical forest at KARRUSEL festival! Join us at Refshaleoen, Copenhagen, from August 29 - 31, 2024!</p>
-      <div class="index_indhold">
-        <div class="lineup_tickets">
-          <a href="/lineup" class="lineup_a">
-            <IndexCard class="hero_index_pic" name="LINEUP 2024" imgPath="../index_pics/lin_24_s.webp" link="lineup" />
-          </a>
-          <IndexCard name="TICKETS" imgPath="../index_pics/tickets_s.webp" />
-        </div>
-        <Component h3="RELEVANT" />
-        <div class="relevant_pics">
-          <IndexCard name="INFO OG MAP" imgPath="../index_pics/map_s.webp" />
-          <IndexCard name="VOLUNTEERING" imgPath="../index_pics/vol_s.webp" />
-          <IndexCard name="COMMUNITY" imgPath="../index_pics/com_s.webp" />
-        </div>
-        <Component h3="THROWBACK" />
-        <div class="throwback_pics">
-          <IndexCard id="karousel" name="LINEUP 23" imgPath="../index_pics/lin_23_s.webp" />
-          <IndexCard id="karousel" name="LINEUP 23" imgPath="../index_pics/lin_22_s.webp" />
-          <IndexCard id="karousel" name="LINEUP 23" imgPath="../index_pics/lin_21_s.webp" />
-        </div>
-      </div>
-      <MainLayout />
-      <Newsletter />
-    </main>
-  </body>
-  <Footer />
-</html>
+<MainLayout title="">
+  <h1>{forside}</h1>
+  <!-- til Annejette - sæt den linje i din -->
+  <Hero picPath="../index_pics/hero_forside_sq.webp" heroText="3 days of house, disco and techno in the woods." />
+  <p class="p_hero">Experience 3 days of house, disco, and techno nestled in a magical forest at KARRUSEL festival! Join us at Refshaleoen, Copenhagen, from August 29 - 31, 2024!</p>
+  <div class="index_indhold">
+    <div class="lineup_tickets">
+      <a href="/lineup" class="lineup_a">
+        <IndexCard class="hero_index_pic" name="LINEUP 2024" imgPath="../index_pics/lin_24_s.webp" link="lineup" />
+      </a>
+      <IndexCard name="TICKETS" imgPath="../index_pics/tickets_s.webp" />
+    </div>
+    <Component h3="RELEVANT" />
+    <div class="relevant_pics">
+      <IndexCard name="INFO OG MAP" imgPath="../index_pics/map_s.webp" />
+      <IndexCard name="VOLUNTEERING" imgPath="../index_pics/vol_s.webp" />
+      <IndexCard name="COMMUNITY" imgPath="../index_pics/com_s.webp" />
+    </div>
+    <Component h3="THROWBACK" />
+    <div class="throwback_pics">
+      <IndexCard id="karousel" name="LINEUP 23" imgPath="../index_pics/lin_23_s.webp" />
+      <IndexCard id="karousel" name="LINEUP 23" imgPath="../index_pics/lin_22_s.webp" />
+      <IndexCard id="karousel" name="LINEUP 23" imgPath="../index_pics/lin_21_s.webp" />
+    </div>
+  </div>
+</MainLayout>
+<Newsletter />
+<Footer />
 
 <style>
   .p_hero {
@@ -60,22 +57,16 @@ import Hero from "../components/Hero.astro";
       font-size: var();
     }
 
-    .lineup_tickets {
-      display: flex;
-      gap: 1%;
-      margin: 0%;
-    }
-
-    .relevant_pics {
-      display: flex;
-      gap: 1%;
-      margin: 0 3%;
-    }
-
+    .lineup_tickets,
+    .relevant_pics,
     .throwback_pics {
       display: flex;
       gap: 1%;
-      margin: 0 3%;
+
+      max-width: 80%;
+      margin: 0 auto; /* Centers the container */
+      text-align: center;
     }
+    /* til Annejette - sæt den linje i din */
   }
 </style>

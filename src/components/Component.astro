@@ -1,14 +1,9 @@
 ---
 import "../styles/style.css";
 const { h3 } = Astro.props;
-import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<!-- mobil -->
-<MainLayout>
-  <h3>{h3}</h3>
-</MainLayout>
-
+<h3>{h3}</h3>
 <style>
   h3 {
     font-size: var(--font-size-h3-mobil);
