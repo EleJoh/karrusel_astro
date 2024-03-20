@@ -22,9 +22,34 @@ console.log(myData);
 ---
 
 <MainLayout title={(myData as any).name}>
-  <h2>{(myData as any).name}</h2>
-  <p>{(myData as any).location}</p>
+  <div class="loc_show">
+    <p>LOCATION : {(myData as any).location}</p>
+    <p>SHOW : {(myData as any).show}</p>
+  </div>
+  <div class="desc">
+    <p>{(myData as any).description}</p>
+  </div>
+  <div class="spotify">
+    <img src="../spotify.webp" alt="" />
+    <p class="name_spotify">NAME</p>
+  </div>
 </MainLayout>
+
+<style>
+  .desc,
+  .loc_show {
+    margin: 3% 10%;
+  }
+
+  .spotify {
+    margin: 3% 10%;
+    position: relative;
+  }
+
+  .name_spotify {
+    position: absolute;
+  }
+</style>
 
 <!-- --- import MainLayout from ".. .. layouts MainLayout.astro"; export async function getStaticPaths() {const data = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/v1/single_artist", {
     method: "GET",
