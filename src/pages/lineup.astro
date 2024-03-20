@@ -48,11 +48,13 @@ const dataSaturday = await fetchData("saturday");
       <h3>THURSDAY</h3>
     </div>
     <section class="artists">
-      {
-        dataThursday.map((artist) => {
-          return <Card name={artist.name} imgPath={`/${artist.day}/${artist.image}`} slug={artist.slug} />;
-        })
-      }
+      <div class="grid-container">
+        {
+          dataThursday.map((artist) => {
+            return <Card name={artist.name} imgPath={`/${artist.day}/${artist.image}`} slug={artist.slug} />;
+          })
+        }
+      </div>
       <div class="artist_list">
         <h4>
           ANNA LOGIC<span class="dot"></span>
@@ -70,12 +72,14 @@ const dataSaturday = await fetchData("saturday");
       </div>
     </section>
     <section>
-      {
-        dataFriday.map((artist) => {
-          return <Card name={artist.name} imgPath={`/${artist.day}/${artist.image}`} slug={artist.slug} />;
-          //return <Artistpicture data={artist} />;
-        })
-      }
+      <div class="grid-container">
+        {
+          dataFriday.map((artist) => {
+            return <Card name={artist.name} imgPath={`/${artist.day}/${artist.image}`} slug={artist.slug} />;
+            //return <Artistpicture data={artist} />;
+          })
+        }
+      </div>
     </section>
     <div class="artist_list">
       <h4>
@@ -93,12 +97,14 @@ const dataSaturday = await fetchData("saturday");
       <h3>SATURDAY</h3>
     </div>
     <section>
-      {
-        dataSaturday.map((artist) => {
-          return <Card name={artist.name} imgPath={`/${artist.day}/${artist.image}`} slug={artist.slug} />;
-          //return <Artistpicture data={artist} />;
-        })
-      }
+      <div class="grid-container">
+        {
+          dataSaturday.map((artist) => {
+            return <Card name={artist.name} imgPath={`/${artist.day}/${artist.image}`} slug={artist.slug} />;
+            //return <Artistpicture data={artist} />;
+          })
+        }
+      </div>
     </section>
     <div class="artist_list">
       <h4>
@@ -142,8 +148,18 @@ const dataSaturday = await fetchData("saturday");
     justify-content: space-between;
     padding-top: 3rem;
     padding-bottom: 4rem;
-    padding-left: 4rem;
-    padding-right: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @media screen and (min-width: 769px) {
+    .days {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 6rem;
+      padding-bottom: 4rem;
+      padding-left: 35rem;
+      padding-right: 35rem;
+    }
   }
 
   #day,
@@ -151,19 +167,14 @@ const dataSaturday = await fetchData("saturday");
   #day3 {
     padding-bottom: 1rem;
     padding-top: 0rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    text-align: left;
   }
 
   .artist_list {
-    padding-left: 4rem;
-    padding-right: 4rem;
     text-align: center;
   }
 
   h4 {
-    padding-left: 2rem;
-    padding-right: 2rem;
     padding-bottom: 2rem;
     font-weight: 200;
     line-height: 2.5;
@@ -180,10 +191,19 @@ const dataSaturday = await fetchData("saturday");
   .buttons {
     display: flex;
     justify-content: space-between;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-top: 0.5rem;
+    padding-top: 1rem;
     padding-bottom: 5rem;
+  }
+
+  @media screen and (min-width: 769px) {
+    .grid-container {
+      align-self: stretch;
+      object-fit: cover;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
+      grid-row-gap: 0px; /* Adjust the gap between rows */
+      grid-column-gap: 35px;
+    }
   }
 </style>
 
