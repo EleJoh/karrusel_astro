@@ -1,5 +1,7 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+import Component from "../../components/Component.astro";
+import Card from "../../components/Card.astro";
 
 export async function getStaticPaths() {
   const data = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/v1/single_artist", {
@@ -21,10 +23,93 @@ const { myData } = Astro.props;
 console.log(myData);
 ---
 
-<MainLayout title={(myData as any).name}>
-  <h2>{(myData as any).name}</h2>
-  <p>{(myData as any).location}</p>
+<MainLayout>
+  <Card name={(myData as any).name} imgPath={`/${(myData as any).day}/${(myData as any).image}`} slug={(myData as any).slug} />;
+  <div class="a_padding">
+    <a class="a_go_back" href="/lineup"><p class="a_go_back">GO BACK</p></a>
+    <div class="favorites">
+      <p>Add to your favorits</p>
+      <img src="/heart_28.png" alt="karrusel" />
+    </div>
+  </div>
+  <div class="flex_info">
+    <div class="loc_show">
+      <p>LOCATION : {(myData as any).location}</p>
+      <p>SHOW : {(myData as any).show}</p>
+    </div>
+    <div class="desc">
+      <p>{(myData as any).description}</p>
+    </div>
+  </div>
+  <div class="spotify">
+    <img class="img_spotify" src="../spotify.webp" alt="" />
+    <div class="name_spotify">{(myData as any).name}</div>
+  </div>
+  <Component h3="OTHER ARTISTS" />
 </MainLayout>
+<style>
+  .a_go_back {
+    text-decoration: underline;
+    color: var(--light_violet);
+  }
+  .desc,
+  .loc_show,
+  .a_padding {
+    margin: 0 10% 3% 10%;
+  }
+
+  .a_padding {
+    margin: 0 10% 5% 10%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .favorites {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .spotify {
+    padding: 0 10%;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .img_spotify {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+    grid-column: 1/4;
+    grid-row: 1/4;
+  }
+  .name_spotify {
+    font-size: var(--font-size-p-mobil);
+    text-align: center;
+    z-index: 1;
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    color: white;
+    padding-top: 5%;
+  }
+
+  @media screen and (min-width: 800px) {
+    .flex_info {
+      display: grid;
+      grid-template-columns: 0.5fr 1fr;
+      max-width: 80%;
+      align-items: first baseline;
+      margin: 0 auto;
+      padding-bottom: 5%;
+    }
+
+    .a_padding {
+    }
+  }
+</style>
 
 <!-- --- import MainLayout from ".. .. layouts MainLayout.astro"; export async function getStaticPaths() {const data = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/v1/single_artist", {
     method: "GET",

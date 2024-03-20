@@ -1,13 +1,33 @@
 ---
 import Component from "../components/Component.astro";
 import "../styles/style.css";
-import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
 import Hero from "../components/Hero.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="">
-  <Navigation />
-  <Hero picPath="../index_pics/map_forside.jpeg" heroText="ljyglyufluyf" />
+  <div class="hero_artist">
+    <Hero class="hero_pic" picPath="../index_pics/hero_forside_sq.webp" heroText="3 days of house, disco and techno in the woods." />
+  </div>
+  <div class="max_width">
+    <p>indhold</p>
+  </div>
   <Component h3="OTHER ARTISTS" />
 </MainLayout>
+<Footer />
+
+<style>
+  @media screen and (min-width: 800px) {
+    .hero_artist {
+      height: 50vh; /* 50% of the viewport height */
+      width: 100vw;
+      overflow: hidden; /* Hide any overflow */
+    }
+
+    .hero_pic {
+      width: 100%; /* Ensure the image takes up the entire width of its container */
+      height: auto; /* Maintain aspect ratio */
+    }
+  }
+</style>
