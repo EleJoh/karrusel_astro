@@ -16,45 +16,70 @@ const { name, imgPath, link } = Astro.props;
       </div>
     </div>
   </article>
-
-  <style>
-    /* Pic_container component*/
-    .pic_container {
-      display: grid;
-      grid-template-columns: 0.5fr 5fr 0.5fr;
-      grid-template-rows: auto;
-      margin-bottom: 5%;
-    }
-
-    .pic {
-      width: 100%;
-      height: auto;
-
-      grid-column: 1/4;
-      grid-row: 1/4;
-      position: relative;
-    }
-
-    .gradient {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 50%;
-      background-image: linear-gradient(to bottom, rgba(22, 44, 49, 0), rgba(1, 0, 20, 1));
-    }
-
-    .pic_text {
-      font-size: var(--font-size-h2-mobil);
-      text-align: center;
-      z-index: 1;
-      grid-column: 2 / span 1;
-      grid-row: 3 / span 1;
-      margin-bottom: 3%;
-    }
-
-    #karousel {
-      margin-bottom: 0;
-    }
-  </style>
 </a>
+
+<style>
+  .pic_container {
+    display: grid;
+    grid-template-columns: 0.5fr 5fr 0.5fr;
+    grid-template-rows: auto;
+    margin-bottom: 5%;
+    width: 100%;
+    height: auto;
+  }
+
+  .pic {
+    width: 100%;
+    height: auto;
+
+    grid-column: 1/4;
+    grid-row: 1/4;
+    position: relative;
+  }
+
+  .gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-image: linear-gradient(to bottom, rgba(22, 44, 49, 0), rgba(1, 0, 20, 1));
+  }
+
+  .pic_text {
+    font-size: var(--font-size-h2-mobil);
+    text-align: center;
+    z-index: 1;
+    grid-column: 2 / span 1;
+    grid-row: 3 / span 1;
+    margin-bottom: 3%;
+  }
+
+  /* .pic_container {
+    position: relative; 
+    overflow: hidden; 
+    transition: filter 0.5s ease; 
+  }
+
+  .pic_container img {
+    width: 100%; 
+    height: auto; 
+  }
+
+  .pic_container .pic_text {
+    position: absolute;
+    bottom: 3%;
+    left: 50%; 
+    color: white; 
+    transition: filter 0.5s ease; 
+    pointer-events: none; 
+  }
+
+  .pic_container:hover {
+    filter: grayscale(50%); 
+  }
+
+  .pic_container:hover .pic_text {
+    filter: grayscale(0%); 
+  } */
+</style>
