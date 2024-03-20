@@ -21,18 +21,26 @@ const { variant, size } = Astro.props;
   .secondary {
     border: 2px solid var(--light_grey);
     background-color: transparent;
-    padding-inline-start: 2.5rem;
-    padding-inline-end: 2.5rem;
+    padding-inline-start: 0.7rem;
+    padding-inline-end: 0.7rem;
   }
 
   @media screen and (min-width: 769px) {
     .secondary {
-      padding-inline-start: 10rem;
-      padding-inline-end: 10rem;
+      padding-inline-start: 27rem;
+      padding-inline-end: 27rem;
+      padding-bottom: 1rem;
+      padding-top: 1rem;
     }
     .primary {
       padding-inline-start: 4rem;
       padding-inline-end: 4rem;
+    }
+  }
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .secondary {
+      padding-inline-start: 5.8rem;
+      padding-inline-end: 5.8rem;
     }
   }
 
@@ -53,6 +61,6 @@ const { variant, size } = Astro.props;
   }
 
   .large {
-    font-size: 1rem;
+    font-size: 0.7rem;
   }
 </style>
