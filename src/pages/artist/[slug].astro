@@ -2,6 +2,7 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import Component from "../../components/Component.astro";
 import Card from "../../components/Card.astro";
+import Footer from "../../components/Footer.astro";
 
 export async function getStaticPaths() {
   const data = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/v1/single_artist", {
@@ -19,12 +20,25 @@ export async function getStaticPaths() {
   });
 }
 
+const fetchData = async (day) => {
+  const response = await fetch(`https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/v1/single_artist?day=eq.${day}`, {
+    method: "GET",
+    headers: {
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6ZmRxcHNhZml3bXZyd2d2cGxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0OTQyNjAsImV4cCI6MjAyNjA3MDI2MH0.fFTeLkcvljoaUfovyl9bdu3eupBIVR6cu41Ure9RVFE",
+    },
+  });
+  return response.json();
+};
+
 const { myData } = Astro.props;
 console.log(myData);
+const dataSaturday = await fetchData("saturday");
 ---
 
 <MainLayout>
-  <Card name={(myData as any).name} imgPath={`/${(myData as any).day}/${(myData as any).image}`} slug={(myData as any).slug} />;
+  <div class="middle_pict">
+    <Card name={(myData as any).name} imgPath={`/${(myData as any).day}/${(myData as any).image}`} slug={(myData as any).slug} />;
+  </div>
   <div class="a_padding">
     <a class="a_go_back" href="/lineup"><p class="a_go_back">GO BACK</p></a>
     <div class="favorites">
@@ -46,11 +60,50 @@ console.log(myData);
     <div class="name_spotify">{(myData as any).name}</div>
   </div>
   <Component h3="OTHER ARTISTS" />
+  <div class="max_width2">
+    <section>
+      <div class="grid-container">
+        {
+          dataSaturday.map((artist) => {
+            return <Card name={artist.name} imgPath={`/${artist.day}/${artist.image}`} slug={artist.slug} />;
+            //return <Artistpicture data={artist} />;
+          })
+        }
+      </div>
+    </section>
+  </div>
+  <a class="a_go_back_b" href="/lineup"><p class="a_go_back_b">GO BACK</p></a>
 </MainLayout>
+<Footer />
+
 <style>
+  .middle_pict {
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center;
+    width: 100%; /* Ensure the Card takes up the full width */
+    height: 100%;
+    align-self: stretch;
+    object-fit: cover;
+  }
+  .max_width2 {
+    max-width: 80%;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+  }
   .a_go_back {
     text-decoration: underline;
     color: var(--light_violet);
+    font-size: small;
+  }
+
+  .a_go_back_b {
+    text-decoration: underline;
+    color: var(--light_violet);
+    font-size: small;
+    padding-bottom: 2.5rem;
+    margin: 0 10% 3% 10%;
   }
   .desc,
   .loc_show,
@@ -109,6 +162,17 @@ console.log(myData);
     .a_padding {
     }
   }
+
+  @media screen and (min-width: 769px) {
+    .grid-container {
+      align-self: stretch;
+      object-fit: cover;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr; /* Three columns with equal width */
+      grid-row-gap: 0px; /* Adjust the gap between rows */
+      grid-column-gap: 20px;
+    }
+  }
 </style>
 
 <!-- --- import MainLayout from ".. .. layouts MainLayout.astro"; export async function getStaticPaths() {const data = await fetch("https://dzfdqpsafiwmvrwgvplo.supabase.co/rest/v1/single_artist", {
@@ -125,4 +189,6 @@ console.log(myData);
     };
   });} const myData="Astro.props;" console.log(myData); --- <MainLayout title={myData.name}>
   <h2>{myData.id}</h2>
+  Hi chat, i am working in astro building a website for a festival. I have a problem with my paths that i would like to resolve, here is the explanation:
+I have a front-page called /lineup where you can see all the artists that will be playing during the festival. Here i have made it so that you can click on one of the artists and that will take you to a site with information about the artist. But on the site with the artist i would like to have some 'other artists' at the buttom that you can navigate to. But when i click on these artists i get an error because the path that i am clickin apparently is /artist/artist/'artist_name' instead of /artist/'artist_name'. There is obviously some issue with how i create the links under "other artists" but i cannot figure out the abstraction. Here is my code:
 </Mainlayout> -->

@@ -31,6 +31,7 @@ const dataSaturday = await fetchData("saturday");
   </head>-->
 <MainLayout title="Lineup 2024">
   <Hero picPath="/hero_images/lineup.webp" heroText="Lineup 2024" />
+  <a class="go_back" href="/index"><p class="go_back">GO BACK / LINEUP 2024</p></a>
   <div class="max_width">
     <div class="days">
       <div class="thur">
@@ -115,13 +116,22 @@ const dataSaturday = await fetchData("saturday");
     </div>
 
     <div class="buttons">
-      <Buttons variant="secondary" size="large">PLAYLIST OF THE DAY</Buttons><Buttons variant="secondary" size="large">DOWNLOAD PROGRAM</Buttons>
+      <Buttons variant="secondary" size="large">PLAYLIST OF THE DAY</Buttons>
+      <a href="/pdf/fridayprogram.pdf" target="_blank" rel="noopener noreferrer">
+        <Buttons variant="secondary" size="large">DOWNLOAD PROGRAM</Buttons>
+      </a>
     </div>
   </div>
+  <a class="go_back" href="index"><p class="go_back">GO BACK / LINEUP 2024</p></a>
 </MainLayout>
 <Footer />
 
 <style>
+  @media (max-width: 767px) {
+    .go_back {
+      display: none;
+    }
+  }
   .max_width {
     max-width: 80%;
     text-align: center;
@@ -131,6 +141,7 @@ const dataSaturday = await fetchData("saturday");
   .fri,
   .sat {
     display: inline-block;
+    cursor: pointer;
   }
 
   .thur:hover,
@@ -150,15 +161,30 @@ const dataSaturday = await fetchData("saturday");
     padding-bottom: 4rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    font-size: larger;
   }
   @media screen and (min-width: 769px) {
     .days {
       display: flex;
       justify-content: space-between;
-      padding-top: 6rem;
-      padding-bottom: 4rem;
-      padding-left: 35rem;
-      padding-right: 35rem;
+      padding-top: 2rem;
+      padding-bottom: 2.5rem;
+      padding-left: 12rem;
+      padding-right: 12rem;
+    }
+    .grid-container {
+      align-self: stretch;
+      object-fit: cover;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr; /* Three columns with equal width */
+      grid-row-gap: 0px; /* Adjust the gap between rows */
+      grid-column-gap: 20px;
+    }
+    .go_back {
+      text-decoration: underline;
+      color: var(--light_violet);
+      margin: 0 10% 3% 10%;
+      font-size: small;
     }
   }
 
@@ -166,12 +192,14 @@ const dataSaturday = await fetchData("saturday");
   #day2,
   #day3 {
     padding-bottom: 1rem;
-    padding-top: 0rem;
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
     text-align: left;
   }
 
   .artist_list {
     text-align: center;
+    padding-top: 0.8rem;
   }
 
   h4 {
@@ -191,19 +219,8 @@ const dataSaturday = await fetchData("saturday");
   .buttons {
     display: flex;
     justify-content: space-between;
-    padding-top: 1rem;
     padding-bottom: 5rem;
-  }
-
-  @media screen and (min-width: 769px) {
-    .grid-container {
-      align-self: stretch;
-      object-fit: cover;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
-      grid-row-gap: 0px; /* Adjust the gap between rows */
-      grid-column-gap: 35px;
-    }
+    padding-top: 2rem;
   }
 </style>
 
