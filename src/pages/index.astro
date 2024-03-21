@@ -2,17 +2,16 @@
 import "../styles/style.css";
 import MainLayout from "../layouts/MainLayout.astro";
 import Footer from "../components/Footer.astro";
-import Card from "../components/Card.astro";
 import IndexCard from "../components/IndexCard.astro";
 import Component from "../components/Component.astro";
-import Navigation from "../components/Navigation.astro";
 import Newsletter from "../components/Newsletter.astro";
-import Hero from "../components/Hero.astro";
+import HeroIndex from "../components/HeroIndex.astro";
 const { forside } = Astro.props;
 ---
 
 <MainLayout title="">
-  <Hero picPath="../index_pics/hero_forside_sq.webp" heroText="3 days of house, disco and techno in the woods." />
+  <h1>{forside}</h1>
+  <HeroIndex picPath="../index_pics/hero_forside_sq.webp" heroText="3 days of house, disco and techno in the woods." />
   <p class="p_hero">Experience 3 days of house, disco, and techno nestled in a magical forest at KARRUSEL festival! Join us at Refshaleoen, Copenhagen, from August 29 - 31, 2024!</p>
 
   <div class="index_indhold">
@@ -51,9 +50,9 @@ const { forside } = Astro.props;
 
   @media screen and (min-width: 800px) {
     .p_hero {
-      margin: 5% 15%;
+      margin: 5% 20%;
       text-align: center;
-      font-size: var();
+      font-size: var(--font-size-p-desk);
     }
 
     .lineup_tickets,

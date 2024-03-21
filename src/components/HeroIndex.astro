@@ -11,21 +11,23 @@ const { picPath, heroText } = Astro.props;
   <div class="hero_text">
     <h1>{heroText}</h1>
   </div>
-  <!-- <div class="hero_pil">
+  <div class="hero_pil">
     <img src="hero_pil.png" alt="hero_pil" />
-  </div> -->
+  </div>
 </div>
 
 <style>
   .hero_container {
     display: grid;
     grid-template-columns: 0.5fr 5fr 0.5fr;
-    grid-template-rows: 4fr 0.1fr 1fr;
+    grid-template-rows: 3fr 0.1fr 1fr;
   }
 
   .hero_image {
     width: 100%;
     height: auto;
+    display: block;
+    margin: 0 auto;
     object-fit: cover;
     grid-column: 1/4;
     grid-row: 1/4;
@@ -71,7 +73,7 @@ const { picPath, heroText } = Astro.props;
       margin: 0 auto;
     }
     .hero_text {
-      font-size: var(--font-size-h1-desk);
+      font-size: var(--font-size-h1-desk-index);
     }
   }
 </style>
