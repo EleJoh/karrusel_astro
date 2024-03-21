@@ -90,7 +90,7 @@ const dataSaturday = await fetchData("saturday");
       </h4>
     </div>
 
-    <div class="buttons">
+    <div class="buttons2">
       <Buttons variant="secondary" size="large">PLAYLIST OF THE DAY</Buttons><Buttons variant="secondary" size="large">DOWNLOAD PROGRAM</Buttons>
     </div>
 
@@ -115,15 +115,14 @@ const dataSaturday = await fetchData("saturday");
       </h4>
     </div>
 
-    <div class="buttons">
+    <div class="buttons3">
       <Buttons variant="secondary" size="large">PLAYLIST OF THE DAY</Buttons>
-      <a href="/pdf/fridayprogram.pdf" target="_blank" rel="noopener noreferrer">
-        <Buttons variant="secondary" size="large">DOWNLOAD PROGRAM</Buttons>
-      </a>
+      <Buttons variant="secondary" size="large">DOWNLOAD PROGRAM</Buttons>
     </div>
   </div>
-  <a class="go_back" href="index"><p class="go_back">GO BACK / LINEUP 2024</p></a>
 </MainLayout>
+<a class="go_back" href="index"><p class="go_back">GO BACK / LINEUP 2024</p></a>
+
 <Footer />
 
 <style>
@@ -216,7 +215,9 @@ const dataSaturday = await fetchData("saturday");
     content: " ·";
   }
 
-  .buttons {
+  .buttons,
+  .buttons2,
+  .buttons3 {
     display: flex;
     justify-content: space-between;
     padding-bottom: 5rem;
@@ -248,5 +249,17 @@ const dataSaturday = await fetchData("saturday");
     addClickListener(".thur", "day");
     addClickListener(".fri", "day2");
     addClickListener(".sat", "day3");
+  });
+
+  document.querySelector(".buttons").addEventListener("click", function () {
+    window.open("/pdf/thursdayprogram.pdf", "_blank");
+  });
+
+  document.querySelector(".buttons2").addEventListener("click", function () {
+    window.open("/pdf/fridayprogram.pdf", "_blank");
+  });
+
+  document.querySelector(".buttons3").addEventListener("click", function () {
+    window.open("/pdf/saturdayprogram.pdf", "_blank");
   });
 </script>
