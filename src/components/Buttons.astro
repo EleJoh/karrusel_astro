@@ -8,6 +8,7 @@ const { variant, size } = Astro.props;
   button {
     padding: 0.4rem;
     color: var(--light_grey);
+    cursor: pointer;
   }
 
   .primary {
@@ -21,26 +22,26 @@ const { variant, size } = Astro.props;
   .secondary {
     border: 2px solid var(--light_grey);
     background-color: transparent;
-    padding-inline-start: 0.7rem;
-    padding-inline-end: 0.7rem;
+    padding-inline-start: 0.5rem;
+    padding-inline-end: 0.5rem;
   }
 
   @media screen and (min-width: 769px) {
     .secondary {
-      padding-inline-start: 27rem;
-      padding-inline-end: 27rem;
-      padding-bottom: 1rem;
-      padding-top: 1rem;
+      padding-inline-start: 13rem;
+      padding-inline-end: 13rem;
+      padding-bottom: 0.5rem;
+      padding-top: 0.5rem;
     }
     .primary {
       padding-inline-start: 4rem;
       padding-inline-end: 4rem;
     }
   }
-  @media screen and (min-width: 769px) and (max-width: 1024px) {
+  @media screen and (min-width: 430px) and (max-width: 1024px) {
     .secondary {
-      padding-inline-start: 5.8rem;
-      padding-inline-end: 5.8rem;
+      padding-inline-start: 3rem;
+      padding-inline-end: 3rem;
     }
   }
 
