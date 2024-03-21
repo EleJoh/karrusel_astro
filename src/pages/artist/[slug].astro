@@ -57,7 +57,7 @@ const dataSaturday = await fetchData("saturday");
   </div>
   <div class="spotify">
     <img class="img_spotify" src="../spotify.webp" alt="" />
-    <div class="name_spotify">{(myData as any).name}</div>
+    <div class="name_spotify">Listen {(myData as any).name} on Spotify</div>
   </div>
   <Component h3="OTHER ARTISTS" />
   <div class="max_width2">
@@ -160,6 +160,15 @@ const dataSaturday = await fetchData("saturday");
     }
 
     .a_padding {
+    }
+
+    .spotify {
+      width: 100%;
+      height: auto;
+    }
+    .img_spotify {
+      width: 70%;
+      height: 100%;
     }
   }
 
